@@ -1,1 +1,45 @@
 
+{
+  "meta": {
+    "owner": "د. بدر عايض محمد",
+    "company": "ميدو تك للحلول البرمجية السحابية",
+    "repo": "zyadbdr662-maker/medo-erp-archive",
+    "city": "صنعاء — اليمن",
+    "lastUpdate": "2026-10-13"
+  },
+  "reports": [
+    {
+      "id": "v6.1",
+      "version": "6.1",
+      "title": "تقرير مشروع MeDo ERP",
+      "subtitle": "من التصفير الشامل إلى نظام التجربة الذاتية",
+      "date": "2026-10-13",
+      "status": "معتمد",
+      "file": "reports/v6.1.md",
+      "tags": ["تصفير شامل", "Vercel KV", "Tenant Isolation", "Trial 7d"]
+    },
+    {
+      "id": "v6.0",
+      "version": "6.0",
+      "title": "تقرير مشروع MeDo ERP — الإصدار الأصلي",
+      "subtitle": "تقرير التصفير الشامل",
+      "date": "2026-10-13",
+      "status": "مؤرشف",
+      "file": "reports/v6.0.md",
+      "tags": ["أرشيف"]
+    }
+  ],
+  "related": {
+    "tenants": "TENANTS.md",
+    "lessons": "LESSONS.md",
+    "changelog": "CHANGELOG.md",
+    "next": "NEXT-v6.2.md"
+  },
+  "links": [
+    { "label": "الموقع التسويقي", "url": "https://medo-erp-cloud.vercel.app/" },
+    { "label": "صفحة التسجيل الذاتي", "url": "https://medo-erp-cloud.vercel.app/signup" },
+    { "label": "نظام مجموعة بن زياد", "url": "https://medo-erp-cloud.vercel.app/erp/?tenant=bdr-zyad-mjly" },
+    { "label": "لوحة تحكم Vercel", "url": "https://vercel.com/zyadbdr662-maker/medo-erp-cloud" },
+    { "label": "مستودع GitHub", "url": "https://github.com/zyadbdr662-maker/medo-erp-archive" }
+  ]
+}
