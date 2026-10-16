@@ -1,1 +1,26 @@
+/**
+ * public/sw.js
+ * Service Worker نظيف — يحرّر المتصفحات العالقة من الكاش القديم.
+ * بعد التأكد من التحرير، يمكن استبداله بـ 404.
+ */
+self.addEventListener('install', () => self.skipWaiting());
 
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    (async () => {
+      const keys = await caches.keys();
+      await Promise.all(keys.map((k) => caches.delete(k)));
+
+      await self.registration.unregister();
+
+      const clients = await self.clients.matchAll({ type: 'window' });
+      clients.forEach((client) => {
+        if ('navigate' in client) client.navigate(client.url);
+      });
+
+      await self.clients.claim();
+    })()
+  );
+});
+
+self.addEventListener('fetch', () => {});
