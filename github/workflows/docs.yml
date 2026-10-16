@@ -1,1 +1,44 @@
+name: Docs Lint & Index
 
+on:
+  push:
+    paths:
+      - 'docs/**'
+      - '.github/workflows/docs.yml'
+  pull_request:
+    paths:
+      - 'docs/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JSON
+        run: |
+          if [ -f docs/correspondence.json ]; then
+            python3 -m json.tool docs/correspondence.json > /dev/null
+            echo "✅ correspondence.json صالح"
+          fi
+
+      - name: Check required docs
+        run: |
+          for f in README.md CHANGELOG.md LESSONS.md TENANTS.md NEXT-v6.2.md; do
+            if [ ! -f "docs/$f" ]; then
+              echo "❌ مفقود: docs/$f"
+              exit 1
+            fi
+          done
+          echo "✅ كل الملفات موجودة"
+
+      - name: Verify report links
+        run: |
+          grep -oE 'reports/v[0-9.]+\.md' docs/README.md | while read f; do
+            if [ ! -f "docs/$f" ]; then
+              echo "❌ رابط مكسور: $f"
+              exit 1
+            fi
+          done
+          echo "✅ كل الروابط تعمل"
